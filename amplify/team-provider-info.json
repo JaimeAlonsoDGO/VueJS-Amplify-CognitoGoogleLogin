@@ -1,0 +1,22 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-pruebasocialauth01-dev-175641-authRole",
+      "UnauthRoleArn": "arn:aws:iam::274940837738:role/amplify-pruebasocialauth01-dev-175641-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::274940837738:role/amplify-pruebasocialauth01-dev-175641-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-pruebasocialauth01-dev-175641-deployment",
+      "UnauthRoleName": "amplify-pruebasocialauth01-dev-175641-unauthRole",
+      "StackName": "amplify-pruebasocialauth01-dev-175641",
+      "StackId": "arn:aws:cloudformation:us-east-2:274940837738:stack/amplify-pruebasocialauth01-dev-175641/87f860e0-0e70-11eb-b836-0aeff631aefa",
+      "AmplifyAppId": "d159c01gj5usi3"
+    },
+    "categories": {
+      "auth": {
+        "pruebasocialauth01c0ef7760": {
+          "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"241022044410-556dd0r1mic1toi9dta7t4bhifsdvb3t.apps.googleusercontent.com\",\"client_secret\":\"qCQKq0A8MBPTjLEo5V9ogfUA\"}]"
+        }
+      }
+    }
+  }
+}

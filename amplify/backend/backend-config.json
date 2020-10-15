@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "pruebasocialauth01c0ef7760": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

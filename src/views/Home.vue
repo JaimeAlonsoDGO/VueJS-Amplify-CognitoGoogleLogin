@@ -1,18 +1,23 @@
 <template>
-  <div class="home">
+<div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <h1>Bienvenido</h1>
+    <button @click="userSignOut">Cerrar Sesion</button>
+</div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import {
+    Auth
+} from 'aws-amplify';
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+    name: 'Home',
+    methods: {
+        async userSignOut() {
+            await Auth.signOut();
+        }
+    }
+
 }
 </script>

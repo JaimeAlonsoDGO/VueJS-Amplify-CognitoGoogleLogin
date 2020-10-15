@@ -1,32 +1,46 @@
 <template>
-  <div id="app">
+<div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+
     </div>
-    <router-view/>
-  </div>
+    <router-view />
+</div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import {
+    Auth,
+    Hub
+} from 'aws-amplify';
 
-#nav {
-  padding: 30px;
+export default {
+    methods: {
+        async checkUser() {
+            Auth.currentAuthenticatedUser()
+                .then((user) => {
+                    window.console.log(`user: ${JSON.stringify(user)}`);
+                })
+                .catch(() => {
+                    window.console.log('user not logged in');
+                });
+        },
+    },
+    async created() {
+        // checks user status on load
+        await this.checkUser();
+    },
+    beforeCreate() {
+        // listens for all auth events
+        Hub.listen('auth', (data) => {
+            window.console.log(`A new auth event has happened: ${data.payload.event}`);
+            if (data.payload.event === 'signIn') { // auth signin event
+                window.console.log(`current user: ${JSON.stringify(data.payload.data)}`);
+                this.$router.push('/home');
+            } else if (data.payload.event === 'signOut') { // auth signout event
+                window.console.log(`Log Out current user: ${JSON.stringify(data.payload.data)}`);
+                this.$router.push('/');
+            }
+        });
+    }
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
