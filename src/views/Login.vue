@@ -15,9 +15,13 @@ export default {
 
     methods: {
         async userSignIn() {
-            await Auth.federatedSignIn({
-                provider: 'Google'
-            });
+            try {
+                await Auth.federatedSignIn({
+                    provider: 'Google'
+                });
+            } catch (error) {
+                console.log('ERROR MIENTRAS SE INTENTABA LOGEAR:     ', error);
+            }
         }
     }
 }

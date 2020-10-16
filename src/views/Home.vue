@@ -15,7 +15,11 @@ export default {
     name: 'Home',
     methods: {
         async userSignOut() {
-            await Auth.signOut();
+            try {
+                await Auth.signOut();
+            } catch (error) {
+                console.log('ERROR MIENTRAS CERRABAS SESION: ', error);
+            }
         }
     }
 
