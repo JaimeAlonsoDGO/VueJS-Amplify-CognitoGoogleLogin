@@ -32,12 +32,9 @@ export default {
     beforeCreate() {
         // listens for all auth events
         Hub.listen('auth', (data) => {
-            window.console.log(`A new auth event has happened: ${data.payload.event}`);
             if (data.payload.event === 'signIn') { // auth signin event
-                window.console.log(`current user: ${JSON.stringify(data.payload.data)}`);
                 this.$router.push('/home');
             } else if (data.payload.event === 'signOut') { // auth signout event
-                window.console.log(`Log Out current user: ${JSON.stringify(data.payload.data)}`);
                 this.$router.push('/');
             }
         });
